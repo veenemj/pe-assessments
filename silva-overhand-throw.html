@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overhand Throw 4th Grade Carr Unit 3</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3245;--accent:#4ade80;--accent3:#f87171;--text:#e8eaf0;--muted:#7c8099;--s1:#f87171;--s2:#fb923c;--s3:#facc15;--s4:#4ade80;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:16px;flex-shrink:0;flex-wrap:wrap;}
+.h-info{flex:1;min-width:200px;}
+.h-unit{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;}
+.h-meta{font-size:11px;color:var(--muted);margin-top:2px;}
+.mode-tabs{display:flex;gap:4px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:3px;}
+.m-tab{font-size:11px;font-weight:600;padding:5px 10px;border-radius:6px;border:none;cursor:pointer;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;transition:all .15s;}
+.m-tab.on{background:var(--accent);color:#0a1a0f;}
+.std-banner{background:var(--surface);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.b-code{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);background:rgba(74,222,128,.1);padding:2px 8px;border-radius:4px;white-space:nowrap;font-weight:500;}
+.b-txt{font-size:11px;color:var(--muted);line-height:1.4;}
+.rub-strip{background:var(--surface2);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;gap:12px;flex-shrink:0;overflow-x:auto;}
+.r-chip{display:flex;align-items:flex-start;gap:6px;flex-shrink:0;max-width:200px;}
+.r-chip .n{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;flex-shrink:0;}
+.r-chip .d{font-size:10px;color:var(--muted);line-height:1.3;}
+.vsep{width:1px;background:var(--border);align-self:stretch;flex-shrink:0;margin:0 4px;}
+.summary-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;gap:18px;flex-shrink:0;flex-wrap:wrap;align-items:center;}
+.summary-title{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-right:4px;}
+.sum-cue{display:flex;align-items:center;gap:8px;}
+.sum-cue .lbl{font-size:12px;font-weight:500;}
+.sum-cue .frac{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);}
+.sum-bar-track{width:60px;height:6px;background:var(--surface2);border-radius:3px;overflow:hidden;}
+.sum-bar-fill{height:100%;background:var(--accent);border-radius:3px;transition:width .2s;}
+.sum-bar-fill.low{background:var(--s1);}
+.sum-bar-fill.mid{background:var(--s2);}
+.roster{flex:1;overflow-y:auto;padding:12px;}
+.s-row{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:8px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;transition:border-color .15s;}
+.s-row.done{border-color:rgba(74,222,128,.25);}
+.s-photo{width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);}
+.s-photo.ph{display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--muted);}
+.s-name{font-weight:500;font-size:14px;min-width:110px;}
+.cue-chips{display:flex;gap:6px;flex-wrap:wrap;}
+.cue-chip{font-size:11px;font-weight:500;padding:6px 10px;border-radius:7px;border:1.5px solid var(--border);background:var(--surface2);color:var(--muted);cursor:pointer;transition:all .12s;white-space:nowrap;}
+.cue-chip:hover{border-color:var(--muted);}
+.cue-chip.on{background:var(--accent);border-color:var(--accent);color:#0a1a0f;}
+.tally{display:flex;align-items:center;gap:6px;}
+.tally-count{font-family:'DM Mono',monospace;font-size:15px;font-weight:500;min-width:20px;text-align:center;}
+.tally-lbl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+.tally-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--accent);cursor:pointer;font-size:15px;line-height:1;display:flex;align-items:center;justify-content:center;}
+.tally-btn:hover{border-color:var(--accent);}
+.score-block{display:flex;flex-direction:column;align-items:center;gap:2px;margin-left:auto;}
+.score-btns{display:flex;gap:4px;}
+.sb{width:30px;height:30px;border-radius:6px;border:1.5px solid transparent;cursor:pointer;font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:#000;transition:all .1s;display:flex;align-items:center;justify-content:center;}
+.sb:hover{opacity:.85;transform:scale(1.08);}.sb.on{border-color:white;box-shadow:0 0 0 2px rgba(255,255,255,.3);}
+.sb[data-s="1"]{background:var(--s1);}.sb[data-s="2"]{background:var(--s2);}.sb[data-s="3"]{background:var(--s3);}.sb[data-s="4"]{background:var(--s4);}
+.score-src{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+.footer{background:var(--surface);border-top:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:16px;flex-shrink:0;flex-wrap:wrap;}
+.fstat{text-align:center;}.fstat .n{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;}.fstat .l{font-size:10px;color:var(--muted);margin-top:1px;}
+.fsep{width:1px;background:var(--border);height:32px;}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:100;padding:20px;}
+.modal-bg.open{display:flex;}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;width:100%;max-width:560px;max-height:80vh;overflow-y:auto;}
+.modal h2{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;}
+.modal .ms{font-size:12px;color:var(--muted);margin-bottom:20px;}
+.etable{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:20px;}
+.etable th{background:var(--bg);color:var(--muted);font-family:'DM Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);}
+.etable td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.etable tr:last-child td{border-bottom:none;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;}
+.btn-pri{background:var(--accent);color:#0a1a0f;width:100%;justify-content:center;font-weight:600;padding:12px;margin-bottom:10px;}
+.btn-pri:hover{background:#6ee7a0;}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);font-size:12px;padding:8px 14px;}
+.btn-ghost:hover{border-color:var(--muted);color:var(--text);}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="h-info">
+    <div class="h-unit" id="h-unit"></div>
+    <div class="h-meta" id="h-meta"></div>
+  </div>
+  <div class="mode-tabs">
+    <button class="m-tab on" id="tab-baseline" onclick="setMode('baseline')">Baseline</button>
+    <button class="m-tab" id="tab-formative" onclick="setMode('formative')">Formative</button>
+    <button class="m-tab" id="tab-summative" onclick="setMode('summative')">Summative</button>
+  </div>
+</div>
+
+<div class="std-banner" id="stdbanner">
+  <div class="b-code" id="bcode"></div>
+  <div class="b-txt" id="btxt"></div>
+</div>
+
+<div class="rub-strip" id="rubstrip"></div>
+<div class="summary-bar" id="summaryBar"></div>
+<div class="roster" id="rosterEl"></div>
+
+<div class="footer">
+  <div class="fstat"><div class="n" id="fscored">0</div><div class="l">Scored</div></div>
+  <div class="fsep"></div>
+  <div class="fstat"><div class="n" id="ftotal">0</div><div class="l">Students</div></div>
+  <div class="fsep"></div>
+  <div class="fstat"><div class="n" id="favg">--</div><div class="l">Avg Score</div></div>
+  <div class="fsep"></div>
+  <div class="fstat"><div class="n" id="fsuccess">0</div><div class="l">Total Passes</div></div>
+  <span style="font-size:10px;color:var(--muted)">AI assistance. Content reviewed and approved by John Veeneman.</span>
+  <span id="sync-ind" style="font-size:10px;font-family:'DM Mono',monospace;color:var(--muted)"></span>
+  <span id="save-ind" style="margin-left:12px;font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);transition:color .3s">Auto-saved</span>
+  <button class="btn btn-ghost" id="undoBtn" onclick="undo()">Undo</button>
+  <button class="btn btn-ghost" onclick="syncAll()">Send all to sheet</button>
+  <button class="btn btn-ghost" onclick="openExp()">Export &uarr;</button>
+</div>
+
+<div class="modal-bg" id="expmodal">
+  <div class="modal">
+    <h2>Export Data</h2>
+    <p class="ms" id="expsub"></p>
+    <table class="etable" id="exptable"></table>
+    <button class="btn btn-pri" onclick="copyCSV()">Copy as CSV</button>
+    <button class="btn btn-ghost" style="width:100%;justify-content:center;padding:10px" onclick="closeExp()">Close</button>
+  </div>
+</div>
+
+<script src="sync-config.js"></script>
+<script>
+// ── Embedded lesson data ───────────────────────────────────────────────────
+const DATA = {"className": "5th Grade Silva Unit 3", "grade": "5", "skillFocus": "Overhand Throw", "lessonRef": "Unit 3 Week 1", "standard": {"code": "4.1.7", "text": "Throw overhand at increasingly smaller targets, using proper follow-through. (Grade 4 standard used as a prior-grade baseline.)"}, "checklist": ["T", "Step", "Throw", "Pocket"], "rubric": {"1": "Shows one cue at most (for example, throws from a low elbow or flat feet) and the ball goes where it lands.", "2": "Shows two of the four cues (T, Step, Throw, Pocket); the motion is choppy and the target is hit only by luck.", "3": "Shows three cues, usually T, opposite-foot Step, and Pocket, in one motion on most throws; follow-through is not yet reliable.", "4": "Shows all four cues (T, Step, Throw, Pocket) in one smooth motion on nearly every throw, even as the target gets smaller or farther."}, "students": [{"name": "Zaira A.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Andrew B.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Muneer B.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Angela B.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Saul C.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Ryley C.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Ameilanny C.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Dylan D.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Lily E.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Jesus F.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Greyson G.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Juan G.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Avianna L.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Erick M.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Jayson P.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Grigorii S.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Lilyanna S.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}, {"name": "Gael V.", "photo": null, "baseline": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "formative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}, "summative": {"checklist": [false, false, false, false], "successCount": 0, "scoreOverride": null}}], "classKey": "silva", "skillKey": "Overhand Throw"};
+
+// ── State ──────────────────────────────────────────────────────────────────
+const STORAGE_KEY = 'pe_' + DATA.className.replace(/\s+/g,'_') + '__' + 'Overhand_Throw_Baseline';
+let S = loadState();
+let UNDO_STACK = [];
+
+function blankModeData(){
+  return { checklist: DATA.checklist.map(()=>false), successCount: 0, scoreOverride: null };
+}
+
+function loadState(){
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');
+    if(saved && saved.students && saved.students.length === DATA.students.length){
+      const merged = DATA.students.map((d,i)=>{
+        const prev = saved.students[i] || {};
+        return {
+          name: d.name,
+          photo: d.photo,
+          baseline: prev.baseline || blankModeData(),
+          formative: prev.formative || blankModeData(),
+          summative: prev.summative || blankModeData(),
+        };
+      });
+      return { students: merged, mode: saved.mode || 'baseline' };
+    }
+  } catch(e){}
+  return { students: DATA.students, mode: 'baseline' };
+}
+
+function saveState(){
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
+    const ind = document.getElementById('save-ind');
+    ind.textContent='Saved'; ind.style.color='var(--accent)';
+    setTimeout(()=>{ ind.textContent='Auto-saved'; ind.style.color='var(--muted)'; }, 1200);
+  } catch(e){}
+}
+
+// ── Score logic ────────────────────────────────────────────────────────────
+function modeData(s){ return s[S.mode]; }
+
+function autoScore(md){
+  const count = md.checklist.filter(Boolean).length;
+  return Math.max(1, count);
+}
+
+function effectiveScore(md){
+  return md.scoreOverride !== null ? md.scoreOverride : autoScore(md);
+}
+
+// ── Mutations (all snapshot for undo) ───────────────────────────────────────
+function snapshot(i){
+  const md = modeData(S.students[i]);
+  UNDO_STACK.push({ i, mode: S.mode, data: JSON.parse(JSON.stringify(md)) });
+  if(UNDO_STACK.length>20) UNDO_STACK.shift();
+}
+
+function toggleCue(i, cueIdx){
+  snapshot(i);
+  const md = modeData(S.students[i]);
+  md.checklist[cueIdx] = !md.checklist[cueIdx];
+  md.scoreOverride = null;
+  renderAll(); saveState(); queueSync(i);
+}
+
+function incrementSuccess(i){
+  snapshot(i);
+  modeData(S.students[i]).successCount++;
+  renderAll(); saveState(); queueSync(i);
+}
+
+function setScore(i, v){
+  snapshot(i);
+  const md = modeData(S.students[i]);
+  md.scoreOverride = (md.scoreOverride === v) ? null : v;
+  renderAll(); saveState(); queueSync(i);
+}
+
+function undo(){
+  const last = UNDO_STACK.pop();
+  if(!last) return;
+  S.students[last.i][last.mode] = last.data;
+  renderAll(); saveState(); updateUndoBtn(); queueSync(last.i, last.mode);
+}
+
+function updateUndoBtn(){
+  const btn = document.getElementById('undoBtn');
+  if(!btn) return;
+  btn.disabled = UNDO_STACK.length===0;
+  btn.style.opacity = UNDO_STACK.length===0 ? '0.4' : '1';
+}
+
+// ── Render ─────────────────────────────────────────────────────────────────
+function init(){
+  document.getElementById('h-unit').textContent = DATA.skillFocus;
+  document.getElementById('h-meta').textContent = DATA.className + (DATA.grade ? ' · Grade ' + DATA.grade : '') + ' · ' + DATA.lessonRef + ' · ' + S.students.length + ' students';
+  if(DATA.standard.code){
+    document.getElementById('bcode').textContent = 'CA PE ' + DATA.standard.code;
+    document.getElementById('btxt').textContent = DATA.standard.text;
+  } else {
+    document.getElementById('stdbanner').style.display='none';
+  }
+  renderRubStrip();
+  renderAll();
+}
+
+function renderAll(){
+  renderSummaryBar(); renderRoster(); updateFooter(); updateUndoBtn();
+}
+
+function renderRubStrip(){
+  const colors={1:'var(--s1)',2:'var(--s2)',3:'var(--s3)',4:'var(--s4)'};
+  document.getElementById('rubstrip').innerHTML=[1,2,3,4].map(n=>
+    '<div class="r-chip"><span class="n" style="color:'+colors[n]+'">'+n+'</span><span class="vsep"></span><span class="d">'+DATA.rubric[n]+'</span></div>'
+    +(n<4?'<div class="vsep"></div>':'')
+  ).join('');
+}
+
+function renderSummaryBar(){
+  const tot = S.students.length;
+  const counts = DATA.checklist.map((_,ci)=> S.students.filter(s=>modeData(s).checklist[ci]).length);
+  let html = '<span class="summary-title">Class cue check (' + S.mode + ')</span>';
+  html += DATA.checklist.map((label,ci)=>{
+    const c = counts[ci];
+    const pct = tot ? Math.round(100*c/tot) : 0;
+    const barClass = pct < 40 ? 'low' : (pct < 75 ? 'mid' : '');
+    return '<div class="sum-cue"><span class="lbl">'+label+'</span><span class="frac">'+c+'/'+tot+'</span>'
+      +'<div class="sum-bar-track"><div class="sum-bar-fill '+barClass+'" style="width:'+pct+'%"></div></div></div>';
+  }).join('');
+  document.getElementById('summaryBar').innerHTML = html;
+}
+
+function renderRoster(){
+  document.getElementById('rosterEl').innerHTML=S.students.map((s,i)=>{
+    const md = modeData(s);
+    const eff = effectiveScore(md);
+    const isAuto = md.scoreOverride === null;
+    const initials=s.name.split(' ').filter(Boolean).map(p=>p[0]).slice(0,2).join('').toUpperCase();
+    const photoEl = s.photo
+      ? '<img class="s-photo" src="'+s.photo+'" alt="">'
+      : '<div class="s-photo ph">'+initials+'</div>';
+    const chips = DATA.checklist.map((label,ci)=>
+      '<button class="cue-chip '+(md.checklist[ci]?'on':'')+'" onclick="toggleCue('+i+','+ci+')">'+label+'</button>'
+    ).join('');
+    const scoreBtns=[1,2,3,4].map(n=>'<button class="sb '+(eff===n?'on':'')+'" data-s="'+n+'" onclick="setScore('+i+','+n+')">'+n+'</button>').join('');
+    const anyProgress = md.checklist.some(Boolean) || md.scoreOverride !== null || md.successCount > 0;
+    return '<div class="s-row '+(anyProgress?'done':'')+'" id="sr'+i+'">'
+      +photoEl
+      +'<div class="s-name">'+s.name+'</div>'
+      +'<div class="cue-chips">'+chips+'</div>'
+      +'<div class="tally">'
+        +'<div><div class="tally-lbl">Passes</div><div class="tally-count">'+md.successCount+'</div></div>'
+        +'<button class="tally-btn" onclick="incrementSuccess('+i+')">+</button>'
+      +'</div>'
+      +'<div class="score-block">'
+        +'<div class="score-btns">'+scoreBtns+'</div>'
+        +'<div class="score-src">'+(isAuto?'auto':'manual')+'</div>'
+      +'</div>'
+      +'</div>';
+  }).join('');
+}
+
+function setMode(m){
+  S.mode=m;
+  ['baseline','formative','summative'].forEach(x=>document.getElementById('tab-'+x).classList.toggle('on',x===m));
+  UNDO_STACK = [];
+  renderAll();
+}
+
+function updateFooter(){
+  const tot=S.students.length;
+  const scored=S.students.filter(s=>{const md=modeData(s); return md.checklist.some(Boolean) || md.scoreOverride!==null;}).length;
+  const scores=S.students.map(s=>effectiveScore(modeData(s)));
+  const avg=scores.length?(scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1):'--';
+  const totalPasses=S.students.reduce((sum,s)=>sum+modeData(s).successCount,0);
+  document.getElementById('fscored').textContent=scored;
+  document.getElementById('ftotal').textContent=tot;
+  document.getElementById('favg').textContent=avg;
+  document.getElementById('fsuccess').textContent=totalPasses;
+}
+
+function openExp(){
+  document.getElementById('expsub').textContent=DATA.skillFocus+' · '+DATA.className+' · '+DATA.lessonRef+' · '+S.mode+' mode';
+  const th='<tr><th>Name</th>'+DATA.checklist.map(l=>'<th>'+l+'</th>').join('')+'<th>Passes</th><th>Score</th></tr>';
+  const rows=S.students.map(s=>{
+    const md=modeData(s);
+    const cueCells=md.checklist.map(v=>'<td>'+(v?'\u2713':'')+'</td>').join('');
+    return '<tr><td>'+s.name+'</td>'+cueCells+'<td>'+md.successCount+'</td><td>'+effectiveScore(md)+(md.scoreOverride!==null?' (manual)':'')+'</td></tr>';
+  }).join('');
+  document.getElementById('exptable').innerHTML=th+rows;
+  document.getElementById('expmodal').classList.add('open');
+}
+
+function copyCSV(){
+  const h='Name,'+DATA.checklist.join(',')+',Passes,Score,Score Source\n';
+  const r=S.students.map(s=>{
+    const md=modeData(s);
+    const cueVals=md.checklist.map(v=>v?'1':'0').join(',');
+    return '"'+s.name+'",'+cueVals+','+md.successCount+','+effectiveScore(md)+','+(md.scoreOverride!==null?'manual':'auto');
+  }).join('\n');
+  navigator.clipboard.writeText(h+r).then(()=>{
+    const b=document.querySelector('#expmodal .btn-pri');
+    b.textContent='Copied!'; setTimeout(()=>b.textContent='Copy as CSV',2000);
+  });
+}
+
+function closeExp(){ document.getElementById('expmodal').classList.remove('open'); }
+
+// ── Google Sheet sync ───────────────────────────────────────────────────────
+const SYNC = (window.PE_SYNC && typeof window.PE_SYNC.url === 'string' && window.PE_SYNC.url.indexOf('https://') === 0 && DATA.classKey) ? window.PE_SYNC : null;
+const PEND_KEY = STORAGE_KEY + '__pending';
+let PENDING = {};
+try { PENDING = JSON.parse(localStorage.getItem(PEND_KEY) || '{}') || {}; } catch(e){}
+let syncTimer = null, sending = false;
+
+function recordFor(i, mode){
+  const s = S.students[i], md = s[mode];
+  return { student: s.name, stage: mode,
+    cues: DATA.checklist.map((l,ci)=>({label:l, on: !!md.checklist[ci]})),
+    passes: md.successCount, score: effectiveScore(md),
+    source: md.scoreOverride !== null ? 'manual' : 'auto' };
+}
+function savePending(){ try { localStorage.setItem(PEND_KEY, JSON.stringify(PENDING)); } catch(e){} }
+function pendingCount(){ return Object.keys(PENDING).length; }
+function setSyncInd(msg){
+  const el = document.getElementById('sync-ind'); if(!el) return;
+  if(!SYNC){ el.textContent = 'Sheet sync off'; return; }
+  el.textContent = msg || (pendingCount() ? 'Sheet: ' + pendingCount() + ' waiting' : 'Sheet: up to date');
+}
+function queueSync(i, mode){
+  if(!SYNC) return;
+  mode = mode || S.mode;
+  PENDING[S.students[i].name + '|' + mode] = recordFor(i, mode);
+  savePending(); setSyncInd();
+  clearTimeout(syncTimer); syncTimer = setTimeout(flushSync, 800);
+}
+function flushSync(){
+  if(!SYNC || sending || !pendingCount()) return;
+  const keys = Object.keys(PENDING), batch = keys.map(k=>PENDING[k]);
+  sending = true; setSyncInd('Sheet: sending...');
+  fetch(SYNC.url, { method:'POST', mode:'no-cors',
+    body: JSON.stringify({ key: SYNC.key, classKey: DATA.classKey, skill: DATA.skillKey || DATA.skillFocus, lesson: DATA.lessonRef, cueLabels: DATA.checklist, records: batch }) })
+  .then(()=>{
+    keys.forEach((k,ix)=>{ if(PENDING[k] === batch[ix]) delete PENDING[k]; });
+    savePending(); sending = false; setSyncInd();
+    if(pendingCount()) flushSync();
+  })
+  .catch(()=>{ sending = false; setSyncInd('Sheet: offline, will retry'); });
+}
+function syncAll(){
+  if(!SYNC) return;
+  S.students.forEach((s,i)=>{
+    const md = s[S.mode];
+    if(md.checklist.some(Boolean) || md.scoreOverride !== null || md.successCount > 0) PENDING[s.name + '|' + S.mode] = recordFor(i, S.mode);
+  });
+  savePending(); setSyncInd(); flushSync();
+}
+window.addEventListener('online', ()=>flushSync());
+setInterval(flushSync, 30000);
+window.addEventListener('load', ()=>{ setSyncInd(); flushSync(); });
+
+window.addEventListener('load', init);
+</script>
+</body>
+</html>
